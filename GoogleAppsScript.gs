@@ -95,10 +95,10 @@ function doPost(e) {
 
     sheet.appendRow([
       new Date(),
-      name,
-      email,
-      subject,
-      message
+      sheetText_(name),
+      sheetText_(email),
+      sheetText_(subject),
+      sheetText_(message)
     ]);
 
     return json_({
@@ -202,6 +202,11 @@ function clean_(value, maxLength) {
     .replace(/[<>]/g, "")
     .trim()
     .slice(0, maxLength);
+}
+
+// Keep visitor text from being evaluated as a spreadsheet formula.
+function sheetText_(value) {
+  return /^[=+\-@]/.test(value) ? "'" + value : value;
 }
 
 // PASSWORD COMPARISON

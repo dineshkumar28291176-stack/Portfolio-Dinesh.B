@@ -628,6 +628,10 @@ section.section-wrap {
   color: #45b982;
 }
 
+.form-status.pending {
+  color: #d3a854;
+}
+
 .form-status.error {
   color: #ed7770;
 }

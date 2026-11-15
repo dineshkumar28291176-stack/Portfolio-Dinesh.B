@@ -29,6 +29,11 @@ password in the frontend. The admin password is sent to Apps Script as a URL
 parameter to support the browser inbox; use a unique password and do not reuse
 an account password. Anyone with that password can view inbox messages.
 
+The contact form uses a cross-origin `no-cors` request, so the browser cannot
+read Apps Script's response and cannot confirm that a row was saved. The form
+keeps its values and shows an unconfirmed status; verify a test submission in
+the `Messages` sheet before relying on the inbox.
+
 ## Publish with GitHub Pages
 
 1. Create a **public** repository on GitHub. Do not initialize it with a README,

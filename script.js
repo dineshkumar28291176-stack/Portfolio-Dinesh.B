@@ -27,6 +27,11 @@ function applyTheme(theme) {
   $(".theme-label").textContent =
     theme === "light" ? "Dark mode" : "Light mode";
 
+  themeToggle.setAttribute(
+    "aria-pressed",
+    String(theme === "light")
+  );
+
   localStorage.setItem("portfolio-theme", theme);
 }
 
@@ -49,12 +54,14 @@ const menuToggle = $("#menuToggle");
 const navLinks = $("#navLinks");
 
 menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
 navLinks.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
   });
 });
 
@@ -132,12 +139,10 @@ $("#contactForm").addEventListener("submit", async event => {
       body: JSON.stringify(payload)
     });
 
-    form.reset();
-
     showStatus(
       status,
-      "Thank you! Your message has been sent.",
-      "success"
+      "Request sent, but delivery could not be confirmed. Keep a copy and check your inbox before retrying.",
+      "pending"
     );
 
   } catch (error) {
@@ -166,9 +171,11 @@ let adminPassword = "";
 let jsonpCounter = 0;
 
 $("#adminToggle").addEventListener("click", () => {
-  adminPanel.classList.toggle("hidden");
+  const isOpen = adminPanel.classList.contains("hidden");
+  adminPanel.classList.toggle("hidden", !isOpen);
+  $("#adminToggle").setAttribute("aria-expanded", String(isOpen));
 
-  if (!adminPanel.classList.contains("hidden")) {
+  if (isOpen) {
     adminPanel.scrollIntoView({
       behavior: "smooth",
       block: "center"

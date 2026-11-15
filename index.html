@@ -20,7 +20,9 @@
     DINESH<span class="brand-dot">.</span>
   </a>
 
-  <button class="menu-toggle" id="menuToggle">☰</button>
+  <button class="menu-toggle" id="menuToggle" type="button"
+    aria-label="Toggle navigation" aria-controls="navLinks"
+    aria-expanded="false">☰</button>
 
   <nav class="nav-links" id="navLinks">
     <a href="#home">Home</a>
@@ -29,9 +31,11 @@
     <a href="#projects">Projects</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
+    <a href="#admin">Admin</a>
   </nav>
 
-  <button class="theme-toggle" id="themeToggle">
+  <button class="theme-toggle" id="themeToggle" type="button"
+    aria-label="Toggle light and dark theme" aria-pressed="false">
     <span id="themeIcon">☼</span>
     <span class="theme-label">Light mode</span>
   </button>
@@ -71,7 +75,7 @@
 
   <div class="hero-visual">
     <div class="image-frame">
-      <img src="assets/profile.jfif" alt="Dinesh profile photo" class="profile-image">
+      <img src="assets/profile.jfif..jfif" alt="Dinesh profile photo" class="profile-image">
     </div>
 
     <div class="floating-card card-top">
@@ -333,7 +337,8 @@
       <h2>Admin <span>inbox.</span></h2>
       <p class="muted">Sign in to view contact form messages.</p>
     </div>
-    <button class="btn btn-ghost" id="adminToggle">Open admin</button>
+    <button class="btn btn-ghost" id="adminToggle" type="button"
+      aria-controls="adminPanel" aria-expanded="false">Open admin</button>
   </div>
 
   <div class="admin-panel hidden" id="adminPanel">
@@ -354,8 +359,8 @@
           <p class="muted" id="responseCount">0 messages</p>
         </div>
         <div class="response-actions">
-          <button class="btn btn-ghost" id="refreshResponses">Refresh</button>
-          <button class="btn btn-ghost" id="logoutAdmin">Sign out</button>
+          <button class="btn btn-ghost" id="refreshResponses" type="button">Refresh</button>
+          <button class="btn btn-ghost" id="logoutAdmin" type="button">Sign out</button>
         </div>
       </div>
       <div id="responsesList" class="responses-list"></div>

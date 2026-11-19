@@ -5,7 +5,7 @@
 */
 
 const GOOGLE_SCRIPT_URL =
-  "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+  "https://script.google.com/macros/s/AKfycbzUbVml3-nGAXagLtozQg5QkVFPomLIAUKNxumvK6-Osb3Q-yXRFBWQWCUP9d3Yc5XIOg/exec";
 
 const $ = selector => document.querySelector(selector);
 

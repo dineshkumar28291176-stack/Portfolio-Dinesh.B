@@ -85,12 +85,12 @@ Deploy Apps Script first, then publish the static website:
    authorize. Copy the web app URL ending in `/exec`. The web app must be
    reachable by anyone for the public form to submit; the spreadsheet stays
    private and the inbox read actions require the admin password.
-2. In `script.js`, replace
-   `PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE` with that `/exec` URL.
+2. In `script.js`, set `GOOGLE_SCRIPT_URL` to the deployed web app URL ending
+   in `/exec`. The current deployment URL is already configured in the project;
+   update it here if you create a new Apps Script deployment.
 3. In the GitHub repository, open **Settings → Pages** and set **Build and
    deployment → Source** to **GitHub Actions**.
-4. Push the `main` branch. For this existing local repository, after committing
-   the Apps Script URL change, run:
+4. Push the `main` branch to publish the site:
 
    ```powershell
    git push -u origin main

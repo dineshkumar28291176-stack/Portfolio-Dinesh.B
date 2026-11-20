@@ -89,7 +89,8 @@ Deploy Apps Script first, then publish the static website:
    in `/exec`. The current deployment URL is already configured in the project;
    update it here if you create a new Apps Script deployment.
 3. In the GitHub repository, open **Settings → Pages** and set **Build and
-   deployment → Source** to **GitHub Actions**.
+   deployment → Source** to **GitHub Actions**. Save this setting once in the
+   repository; the workflow token cannot enable Pages itself.
 4. Push the `main` branch to publish the site:
 
    ```powershell
